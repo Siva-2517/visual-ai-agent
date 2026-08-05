@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Visual AI Activity Agent</title>
+  <style>
+    body {
+      width: 280px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0e1a;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 16px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+    .title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #6366f1;
+    }
+    .status-badge {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 500;
+    }
+    .status-active {
+      background-color: rgba(16, 185, 129, 0.2);
+      color: #10b981;
+      border: 1px solid #10b981;
+    }
+    .status-paused {
+      background-color: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+      border: 1px solid #ef4444;
+    }
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #111827;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #374151;
+      transition: .3s;
+      border-radius: 24px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #6366f1;
+    }
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+    .btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      box-sizing: border-box;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .footer {
+      font-size: 11px;
+      color: #64748b;
+      text-align: center;
+      margin-top: 12px;
+    }
+    .key-container {
+      background-color: #111827;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      font-size: 11px;
+    }
+    .key-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #94a3b8;
+      margin-bottom: 4px;
+    }
+    .key-value {
+      font-family: monospace;
+      color: #818cf8;
+      word-break: break-all;
+      font-size: 11px;
+      background: #0f172a;
+      padding: 4px 6px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .btn-sm {
+      padding: 3px 8px;
+      font-size: 10px;
+      border-radius: 4px;
+      border: 1px solid #6366f1;
+      background: rgba(99, 102, 241, 0.2);
+      color: #a5b4fc;
+      cursor: pointer;
+    }
+    .btn-sm:hover {
+      background: rgba(99, 102, 241, 0.4);
+    }
+    .restore-box {
+      margin-top: 6px;
+      display: flex;
+      gap: 4px;
+    }
+    .input-sm {
+      flex: 1;
+      background: #0a0e1a;
+      border: 1px solid #334155;
+      color: white;
+      font-size: 10px;
+      padding: 4px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <img src="../../icons/icon32.png" width="20" height="20" alt="Icon" style="border-radius: 4px;" />
+      <div class="title">Visual AI Agent</div>
+    </div>
+    <span id="statusBadge" class="status-badge status-active">Active</span>
+  </div>
+
+  <div class="toggle-container">
+    <span>Activity Capture</span>
+    <label class="switch">
+      <input type="checkbox" id="toggleRecording" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="key-container">
+    <div class="key-header">
+      <span>User Sync Key</span>
+      <button id="copyKeyBtn" class="btn-sm">Copy</button>
+    </div>
+    <div id="userKeyDisplay" class="key-value">Loading...</div>
+
+    <div class="restore-box">
+      <input type="text" id="restoreKeyInput" class="input-sm" placeholder="Paste existing Sync Key..." />
+      <button id="restoreKeyBtn" class="btn-sm">Restore</button>
+    </div>
+  </div>
+
+  <a href="http://localhost:8000/dashboard/" target="_blank" class="btn">
+    Open Dashboard
+  </a>
+
+  <div class="footer">
+    Client PII Redaction Enabled
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

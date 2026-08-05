@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Node.js & React Build Artifacts
+node_modules/
+dist/
+build/
+.npm/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Application Runtime Storage & Screenshots (Keep directory structure with .gitkeep)
+storage/screenshots/*
+!storage/screenshots/.gitkeep
+*.log
+
+# Environment & Secrets
+.env
+.env.local
+.env.development
+.env.production
+*.pem
+*.key
+
+# IDEs & System Files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

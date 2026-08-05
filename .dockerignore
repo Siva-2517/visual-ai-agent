@@ -1,0 +1,35 @@
+# Git & Version Control
+.git/
+.gitignore
+.dockerignore
+README.md
+
+# Virtual Environments
+venv/
+.venv/
+env/
+
+# Python Bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Node.js & React Build Artifacts
+node_modules/
+dist/
+apps/dashboard/node_modules/
+apps/dashboard/dist/
+
+# Storage & Temporary Files
+storage/screenshots/*
+!storage/screenshots/.gitkeep
+*.log
+scratch/
+
+# IDE & OS Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

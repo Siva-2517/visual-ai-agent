@@ -1,0 +1,13 @@
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[tool.pyright]
+venvPath = "."
+venv = "venv"
+extraPaths = ["."]
+
+[tool.pylance]
+extraPaths = ["."]
+
+[tool.mypy]
+pythonpath = "."
