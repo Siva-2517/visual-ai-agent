@@ -1,6 +1,7 @@
 """
 WebSocket endpoint — pushes real-time activity events to connected dashboard clients.
 """
+
 import asyncio
 import json
 from typing import Set

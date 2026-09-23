@@ -99,6 +99,7 @@ async def get_current_user(token: Optional[str] = Depends(oauth2_scheme)) -> Tok
     return decode_access_token(token)
 
 
+
 async def get_or_create_user_id(conn, user_key: Any) -> int:
     """
     Looks up user ID by user_key. Auto-provisions a user record if not exists.

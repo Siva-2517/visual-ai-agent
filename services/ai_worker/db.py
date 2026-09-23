@@ -15,7 +15,7 @@ from typing import Dict, Any, Optional
 
 from apps.backend.config import settings
 
-
+ 
 async def save_activity_to_db(activity_data: Dict[str, Any]) -> Optional[int]:
     """
     Inserts a fully processed activity record into the PostgreSQL `activity_logs` table.

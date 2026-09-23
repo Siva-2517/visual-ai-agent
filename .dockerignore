@@ -3,6 +3,7 @@
 .gitignore
 .dockerignore
 README.md
+readme.md
 
 # Virtual Environments
 venv/

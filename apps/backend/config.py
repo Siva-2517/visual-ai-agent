@@ -5,7 +5,6 @@ Supports local PostgreSQL and External PostgreSQL databases (Supabase, Neon, AWS
 import os
 from pydantic_settings import BaseSettings
 
-
 class Settings(BaseSettings):
     # --- Database ---
     DATABASE_URL: str = os.getenv(

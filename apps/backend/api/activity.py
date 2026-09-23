@@ -288,3 +288,4 @@ async def search_activities(
         return {"results": activities, "query": query, "count": len(activities)}
     finally:
         await conn.close()
+
